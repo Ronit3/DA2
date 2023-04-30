@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+#define CS_SZ 25
+
+int main() {
+    int mks[CS_SZ], rev_mks[CS_SZ];
+    int t_mks = 0, t_rev_mks = 0;
+    float cs_avg, rev_cs_avg;
+    int i, birth_mnt, bst_mks;
+
+    printf("Enter the original marks of %d students:\n", CS_SZ);
+    for (i = 0; i < CS_SZ; i++) {
+        scanf("%d", &mks[i]);
+        t_mks += mks[i];
+    }
+    printf("Enter the birth month of each student (1-12):\n");
+    for (i = 0; i < CS_SZ; i++) {
+        scanf("%d", &birth_mnt);
+        bst_mks = birth_mnt;  
+        rev_mks[i] = mks[i] + bst_mks;
+        t_rev_mks += rev_mks[i];
+    }
+
+    cs_avg = (float) t_mks / CS_SZ;
+    rev_cs_avg = (float) t_rev_mks / CS_SZ;
+
+    if (rev_cs_avg - cs_avg >= 5) {
+        printf("Can implement\n");
+    } else {
+        printf("Need not implement\n");
+    }
+
+    printf("Class average for org marks: %.2f\n", cs_avg);
+    printf("Class average for rev marks: %.2f\n", rev_cs_avg);
+}
