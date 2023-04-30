@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    char tp_car[20];
+    float pre_car, etr_fg_price, total, dis, gst, net;
+
+    printf("Enter the type of car: ");
+    scanf("%s", tp_car);
+
+    printf("Enter the price of car: ");
+    scanf("%f", &pre_car);
+
+    printf("Enter the extra fitting price: ");
+    scanf("%f", &etr_fg_price);
+
+    if (strcmp(tp_car, "Hatchback") == 0) {
+        total = pre_car + etr_fg_price;
+        dis = total * 0.03;
+        gst = (total - dis) * 0.12;
+        net = total - dis + gst;
+    } else if (strcmp(tp_car, "Sedan") == 0) {
+        total = pre_car + etr_fg_price;
+        dis = total * 0.05;
+        gst = (total - dis) * 0.12;
+        net = total - dis + gst;
+    } else if (strcmp(tp_car, "SUV") == 0) {
+        total = pre_car + etr_fg_price;
+        dis = total * 0.1;
+        gst = (total - dis) * 0.12;
+        net = total - dis + gst;
+    } else if (strcmp(tp_car, "MUV") == 0) {
+        total = pre_car + etr_fg_price;
+        dis = total * 0.15;
+        gst = (total - dis) * 0.12;
+        net = total - dis + gst;
+    } else {
+        printf("Invalid\n");
+        return 0;
+    }
+
+    printf("Net amount: %.2f\n", net);
+}
