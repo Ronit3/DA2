@@ -4,7 +4,6 @@
 int main() {
     char str[100];
     int vowels = 0, consonants = 0, words = 0, spaces = 0, special = 0;
-    
     printf("Enter a string: ");
     fgets(str, 100, stdin);
     
@@ -22,7 +21,7 @@ int main() {
             special++;
         }
     }
-    
+    spaces=spaces-1;
     words = spaces + 1;
     
     printf("Words = %d\n", words);
