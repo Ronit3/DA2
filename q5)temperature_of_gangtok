@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    float ch_tmp[7], dl_tmp[7], hv_tmp[7], gk_tmp[7];
+    float ch_mn_tmp = 28.0, ch_mx_tmp = 33.0;
+
+    printf("Enter the temperature in Chennai for the week:\n");
+    for (int i = 0; i < 7; i++) {
+        printf("Day %d: ", i+1);
+        scanf("%f", &ch_tmp[i]);
+
+        if (ch_tmp[i] < ch_mn_tmp || ch_tmp[i] > ch_mx_tmp) {
+            printf("Invalid temperature! Temperature must be between %0.1fC and %0.1fC.\n", ch_mn_tmp, ch_mx_tmp);
+            return 0;
+        }
+    }
+
+    for (int i = 0; i < 7; i++) {
+        dl_tmp[i] = ch_tmp[i] - 8.0;
+        hv_tmp[i] = ch_tmp[i] + 5.0;
+    }
+    for (int i = 0; i < 7; i++) {
+        gk_tmp[i] = hv_tmp[i] - dl_tmp[i];
+    }
+
+    printf("\nTemperature in Gangtok for the week:\n");
+    for (int i = 0; i < 7; i++) {
+        printf("Day %d: %0.1fC\n", i+1, gk_tmp[i]);
+    }
+
+}
